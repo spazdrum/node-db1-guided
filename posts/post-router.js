@@ -44,7 +44,7 @@ router.post("/", async, (req, res) => {
     try {
         const sql = await db('posts').insert(newPost).toString();
         console.log(sql);
-        const post = db('posts').insert(newPost);
+        const post = await db('posts').insert(newPost);
         res.status(201).json(post);
     } catch (err) {
         console.log(err);
