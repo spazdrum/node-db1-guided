@@ -47,6 +47,7 @@ router.post("/", async, (req, res) => {
         const post = db('posts').insert(newPost);
         res.status(201).json(post);
     } catch (err) {
+        console.log(err);
         res.status(500).json({ message: 'error posting', error : err})
     }
 });
